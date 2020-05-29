@@ -43,7 +43,7 @@ jobs:
     #  run: flutter test
     # It uses the tests under $GITHUB_WORKSPACE/tests, which don't exist
     - name: Build APKs
-      run: flutter build apk --debug --split-per-abi
+      run: flutter channel f139b11 && flutter upgrade && flutter build apk --debug --split-per-abi
     - name: Upload artifact megazip
       uses: actions/upload-artifact@v1.0.0
       with:
