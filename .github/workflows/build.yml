@@ -26,14 +26,12 @@ jobs:
     - name: Setup Flutter
       if: steps.flutter-cache.outputs.cache-hit != 'true'
       run: |
+        cd lib
+        wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.17.2-stable.tar.xz -O flutter.tar.xz
+        tar xf flutter.tar.xz
+        export PATH="$PATH:$GITHUB_WORKSPACE/lib/flutter/bin"
         cd $GITHUB_WORKSPACE
-        git clone https://github.com/flutter/flutter.git lib/flutter
-        cd lib/flutter
-        git checkout beta # <--- Flutter version to use
-        PATH="$PATH:$GITHUB_WORKSPACE/lib/flutter/bin"
-        flutter channel beta
-        flutter upgrade        
-        cd $GITHUB_WORKSPACE #be ready for the build job
+        flutter upgrade
     - name: Flutter Doctor; set path
       run: |
         export PATH="$PATH:$GITHUB_WORKSPACE/lib/flutter/bin"
