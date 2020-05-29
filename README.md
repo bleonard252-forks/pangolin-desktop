@@ -1,22 +1,16 @@
-# Pangolin Desktop
-Desktop shell for DahliaOS
+# pangolin_desktop
 
-## Build Pangolin Desktop
+A new Flutter project.
 
-Check The Wiki:
+## Getting Started
 
-[/wiki/Build-Pangolin-Desktop](https://github.com/dahlia-os/pangolin-desktop/wiki/Build-Pangolin-Desktop)
+This project is a starting point for a Flutter application.
 
+A few resources to get you started if this is your first Flutter project:
 
-## What Is Pangolin?
-Pangolin was named after a shelled animal like the armadillo ([armadillo ui](https://9to5google.com/2018/12/26/fuchsia-armadillo-ui-gone/)). Pangolin-Desktop is based on the deprecated Capybara shell, with a custom window management system built from the ground up.
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-![Capybara UI Apk](https://github.com/dahlia-os/Icons/blob/master/UI-Screenshots/Pangolin-2020-23_04.png)
-Pangolin Desktop
-
-## What will happen to Pangolin once the kernel is ready?
-As soon as the kernel is ready to handle Pangolin, support for running Pangolin on any other system than Fuchsia and Dahlia Linux will be removed due to the deep integration the shell has with the underlying system. We will ensure that it will remain somewhat compatible with other systems, but we cannot ensure permanent compatibility with Android, IOS, Linux, Web, and Mac OS.
-
-
-## Important Style guide!
-All dahlia applications MUST have a central theme color, that is not #ff5722, or material-deeporange or similar, as that is reserved for the system. Uploaders must upload a theme.txt in the root of their application, that contains the theme color, in preferably hexadecimal, but RGBA is acceptable as well. Uncompliant applications will have their theme colors set to a random color.
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
