@@ -35,7 +35,7 @@ jobs:
     - name: Flutter Doctor; set path
       run: |
         export PATH="$PATH:$GITHUB_WORKSPACE/lib/flutter/bin"
-        flutter doctor
+        flutter doctor -v
         echo ::set-env name=PATH::$PATH
     - name: Get dependencies
       run: flutter pub get #TODO: figure out how to cache this
