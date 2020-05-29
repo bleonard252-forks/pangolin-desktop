@@ -29,7 +29,7 @@ jobs:
         cd $GITHUB_WORKSPACE
         git clone https://github.com/flutter/flutter.git lib/flutter
         cd lib/flutter
-        git checkout v1.16.0 # <--- Flutter version to use
+        git checkout v1.17.0 # <--- Flutter version to use
         ./bin/flutter upgrade
         cd $GITHUB_WORKSPACE #be ready for the build job
     - name: Flutter Doctor; set path
