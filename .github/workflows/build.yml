@@ -9,11 +9,11 @@ jobs:
   build:
     name: Build APK
     runs-on: ubuntu-latest
-    if: "${{ contains(github.event.commit.message, '[nobuild]') }}"
+    #if: "${{ contains(github.event.commit.message, '[nobuild]') }}"
     steps:
     - uses: actions/checkout@v1
     - name: Cache Flutter
-      id: flutter-cache
+      id: flutter-cache-2
       uses: actions/cache@v1.1.2
       with:
         # A directory to store and save the cache
@@ -31,9 +31,10 @@ jobs:
         cd lib/flutter
         git checkout v1.16.0 # <--- Flutter version to use
         cd $GITHUB_WORKSPACE #be ready for the build job
-    - name: Flutter Doctor; set path
+    - name: Flutter Upgrade; Flutter Doctor; set path
       run: |
         export PATH="$PATH:$GITHUB_WORKSPACE/lib/flutter/bin"
+        flutter upgrade
         flutter doctor
         echo ::set-env name=PATH::$PATH
     - name: Get dependencies
@@ -56,9 +57,7 @@ jobs:
       with:
         prerelease: yes
         tag_name: tag-${{ github.sha }}
-        name: "Automatic APK build"
-        body: |
-          This build was executed automatically after a commit. 
+        name: "Bleeding Edge APK"
         files: |
           build/app/outputs/apk/debug/app-arm64-v8a-debug.apk
           build/app/outputs/apk/debug/app-armeabi-v7a-debug.apk
