@@ -12,6 +12,7 @@ class AppLauncherPanelButton extends StatelessWidget {
   final double childHeight;
   final double childWidth;
   final Color color;
+  final bool hideInPortrait;
 
   AppLauncherPanelButton(
       {this.app,
@@ -19,10 +20,12 @@ class AppLauncherPanelButton extends StatelessWidget {
       this.appExists = true,
       this.childHeight = 35.0,
       this.childWidth = 35.0,
-      this.color});
+      this.color,
+      this.hideInPortrait = true});
 
   @override
   Widget build(BuildContext context) {
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -56,12 +59,12 @@ class AppLauncherPanelButton extends StatelessWidget {
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 5, vertical: 0,),
-              child: Image.asset(
+              child: (hideInPortrait && !isPortrait) || (!hideInPortrait) ? Image.asset(
                 icon,
                 fit: BoxFit.cover,
                 width: childWidth,
                 height: childHeight,
-              ),
+              ) : null,
             ),
           ),
         ))
