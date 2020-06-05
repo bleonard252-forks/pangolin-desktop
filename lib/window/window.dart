@@ -139,6 +139,8 @@ class WindowState extends State<Window> {
           return new Container();
         }
         final TabData selectedTab = _getCurrentSelection(model);*/
+        var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+        if (isPortrait) _windowMode = WindowMode.MAXIMIZE_MODE;
         return Positioned(
           left: _position.dx,
           top: _position.dy,
