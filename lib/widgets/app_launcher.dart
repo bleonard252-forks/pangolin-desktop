@@ -90,6 +90,7 @@ class AppLauncherDrawerButton extends AppLauncherPanelButton {
   final bool appExists;
   final double childHeight;
   final double childWidth;
+  final bool adaptSizeToScreen;
   final String label;
   final Color color;
 
@@ -100,9 +101,17 @@ class AppLauncherDrawerButton extends AppLauncherPanelButton {
       this.appExists = true,
       this.childHeight = 64.0,
       this.childWidth = 64.0,
+      this.adaptSizeToScreen = true,
       this.color});
   @override
   Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
+    double cH = childHeight;
+    double cW = childWidth;
+    if (adaptSizeToScreen) {
+      double _dsz = (deviceSize.width > 480) ? 64 : 32;
+      cH = _dsz; cW = _dsz;
+    }
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -138,8 +147,8 @@ class AppLauncherDrawerButton extends AppLauncherPanelButton {
               child: Image.asset(
                 icon,
                 fit: BoxFit.cover,
-                width: childWidth,
-                height: childHeight,
+                width: cW,
+                height: cH,
               ),
             ),
           ),
