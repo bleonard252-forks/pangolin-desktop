@@ -140,7 +140,16 @@ class WindowState extends State<Window> {
         }
         final TabData selectedTab = _getCurrentSelection(model);*/
         var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-        if (isPortrait) _windowMode = WindowMode.MAXIMIZE_MODE;
+        if (isPortrait) {
+          Size deviceSize = MediaQuery.of(context).size;
+          //setState(() {
+          _windowMode = WindowMode.MAXIMIZE_MODE;
+          _prePosition = _position;
+          _preSize = _size;
+          _position = Offset(0, 0);
+          _size = Size(deviceSize.width, deviceSize.height - 50);
+          //});
+        }
         return Positioned(
           left: _position.dx,
           top: _position.dy,
