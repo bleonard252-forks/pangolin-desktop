@@ -21,7 +21,7 @@ class AppLauncherPanelButton extends StatefulWidget {
       this.childWidth = 35.0,
       this.color,
       this.hideInPortrait = true,
-      callback});
+      callback})
       : _callback = callback;
 
   @override
@@ -68,7 +68,6 @@ class _AppLauncherPanelButtonState extends State<AppLauncherPanelButton> {
                       });
             },
             child: Container(
-<<<<<<< HEAD
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: (hideInPortrait && !isPortrait) || (!hideInPortrait) ? Image.asset(
                 widget.icon,
